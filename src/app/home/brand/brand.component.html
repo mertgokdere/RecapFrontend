@@ -1,0 +1,14 @@
+<div class="list-group">
+  <a class="list-group-item list-group-item-action active" aria-current="true">
+    All Brands
+  </a>
+  <a
+    *ngFor="let brand of brands"
+    [routerLink]="['/cars/brand', brand.brandId]"
+    routerLinkActive="router-link-active"
+    class="list-group-item list-group-item-secondary"
+    aria-current="true"
+  >
+    {{ brand.name }}
+  </a>
+</div>

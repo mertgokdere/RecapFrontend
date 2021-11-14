@@ -1,0 +1,14 @@
+<div class="list-group mt-4">
+  <a class="list-group-item list-group-item-action active" aria-current="true">
+    All Colors
+  </a>
+  <a
+    *ngFor="let color of colors"
+    [routerLink]="['/cars/color', color.colorId]"
+    routerLinkActive="router-link-active"
+    class="list-group-item list-group-item-secondary"
+    aria-current="true"
+  >
+    {{ color.name }}
+  </a>
+</div>

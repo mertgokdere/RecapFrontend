@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control mt-2"
+          [(ngModel)]="filterText"
+          id="filterText"
+          placeholder="arama ifadesi giriniz"
+        />
+      </div>
+      <div class="small alert alert-primary" *ngIf="filterText.length > 2">
+        {{ filterText }} aradınız
+      </div>
+      <table
+        class="table table-striped mt-2 table-hover"
+        *ngIf="dataLoaded == true"
+      >
+        <thead class="table-dark">
+          <tr>
+            <td>Car No</td>
+            <td>Brand</td>
+            <td>Color</td>
+            <td>ModelYear</td>
+            <td>Daily Price</td>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars | filterPipe: filterText">
+            <td>{{ car.carId }}</td>
+            <td>{{ car.brandName }}</td>
+            <td>{{ car.colorName }}</td>
+            <td>{{ car.modelYear }}</td>
+            <td>{{ car.dailyPrice }} ₺</td>
+            <td>{{ car.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

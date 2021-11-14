@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped mt-2 table-hover">
+        <thead class="table-dark">
+          <tr>
+            <td>No</td>
+            <td>Brand</td>
+            <td>Name</td>
+            <td>Rent Date</td>
+            <td>Return Date</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rental of rentals">
+            <td>{{ rental.id }}</td>
+            <td>{{ rental.brandName }}</td>
+            <td>{{ rental.fullName }}</td>
+            <td>{{ rental.rentDate | date }}</td>
+
+            <td>
+              {{ rental.returnDate | date }}
+              <p *ngIf="rental.returnDate == null" class="text-danger">
+                Car is still rented
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
